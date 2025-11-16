@@ -4,9 +4,9 @@ from datetime import date
 
 class ProductTemplateInherit(models.Model):
     _inherit = 'product.template'
-    future_date = fields.Date(string="Fecha futura")
+    expiration_date = fields.Date(string="Fecha de expiracion del lote")
 
-    @api.constrains('future_date')
+    @api.constrains('expiration_date')
     def _check_future_date(self):
         for record in self:
             if record.future_date and record.future_date <= date.today():

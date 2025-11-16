@@ -2,15 +2,14 @@
     <record id="view_product_form_inherit_pos" model="ir.ui.view">
         <field name="name">product.template.form.inherit.pos</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
+
+        <!-- ESTA es la vista que sí contiene el barcode -->
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+
         <field name="arch" type="xml">
-
-            <xpath expr="//form//sheet" position="inside">
-                <group>
-                    <field name="future_date" options="{'min': 'today'}"/>
-                </group>
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="expiration_date" options="{'min': 'today'}"/>
             </xpath>
-
         </field>
     </record>
 </odoo>
