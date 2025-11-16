@@ -1,17 +1,17 @@
-<!-- ...existing code... -->
 <odoo>
     <record id="view_product_form_inherit_pos" model="ir.ui.view">
         <field name="name">product.template.form.inherit.pos</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-            <!-- Inserta el campo en la sheet si no encuentras barcode -->
+
             <xpath expr="//form//sheet" position="inside">
                 <group>
-                    <field name="pos_note"/>
+                    <field name="future_date" options="{'min': 'today'}"/>
                 </group>
             </xpath>
+
         </field>
     </record>
 </odoo>
-<!-- ...existing code... -->
+
